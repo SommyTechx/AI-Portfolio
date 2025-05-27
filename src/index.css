@@ -9,3 +9,51 @@
   --color-accent: #38bdf8;
   --color-accent-light: #94a3b8;
 }
+
+/* Default Light Theme */
+html {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+p,
+span {
+  color: #0f172a;
+}
+
+button.theme-toggle {
+  padding: 10px 20px;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+/* Dark Theme */
+html.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark p,
+html.dark span {
+  color: #f1f5f9;
+}
+
+html.dark button.theme-toggle {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}

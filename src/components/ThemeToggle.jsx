@@ -5,15 +5,14 @@ export default function ThemeToggle() {
     localStorage.getItem("theme") === "dark"
   );
 
-  // Apply theme on initial load and on change
   useEffect(() => {
+    const root = document.documentElement;
+
     if (isDark) {
-      document.body.style.backgroundColor = "#0F172A";
-      document.body.style.color = "#F1F5F9";
+      root.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
-      document.body.style.backgroundColor = "#F1F5F9";
-      document.body.style.color = "#0F172A";
+      root.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
   }, [isDark]);
@@ -23,18 +22,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      style={{
-        padding: "10px 20px",
-        background: isDark ? "#F1F5F9" : "#0F172A",
-        color: isDark ? "#0F172A" : "#F1F5F9",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-        margin: "20px",
-      }}
-    >
+    <button className="theme-toggle" onClick={toggleTheme}>
       {isDark ? "🌞 Light Mode" : "🌙 Dark Mode"}
     </button>
   );
