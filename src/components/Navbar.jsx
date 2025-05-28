@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { scroller } from "react-scroll";
 import bot from "../assets/bot.png";
+import ThemeToggle from "./ThemeToggle";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -98,10 +100,13 @@ const Navbar = () => {
   return (
     <div className="p-4 text-white relative z-50">
       <div className="flex justify-between items-center">
-        <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#F1F5F9] font-heading">
-          SommyTech
-        </h1>
+        <Link to="/">
+          <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#F1F5F9] font-heading">
+            SommyTech
+          </h1>
+        </Link>
 
+        <ThemeToggle />
         {/* Mobile Toggle Button */}
         <button
           onClick={toggleSearch}

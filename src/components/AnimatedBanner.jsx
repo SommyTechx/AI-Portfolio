@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
+import profile from "../assets/profile.png";
 
 export default function AnimatedBanner() {
   const [shapePos, setShapePos] = useState({ x: 50, y: 50 });
@@ -127,10 +127,22 @@ export default function AnimatedBanner() {
   }
 
   return (
-    <>
+    <div
+      className=" relative flex
+    x flex-col items-center  "
+    >
       <div
         ref={gameRef}
-        className="relative mx-auto h-64 w-full max-w-[53rem] rounded-xl shadow-md select-none overflow-hidden"
+        className="
+        mt-5 px-4
+        max-w-full mx-auto
+        h-[9rem]
+        w-[90vw]  
+        sm:px-10 sm:w-[25rem]
+        md:h-40 md:w-[40rem]
+        lg:h-64 lg:w-[53rem]
+        relative  shadow-md select-none overflow-hidden
+      "
         style={{
           background:
             "radial-gradient(ellipse at center, #0f2027 0%, #203a43 60%, #2c5364 100%)",
@@ -169,8 +181,8 @@ export default function AnimatedBanner() {
         </svg>
 
         {/* Title */}
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 px-6">
-          <h1 className="text-lg md:text-2xl font-mono font-semibold text-sky-400 select-text">
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 px-4">
+          <h1 className="textbase sm:text-lg md:text-xl lg:text-2xl font-heading font-semibold text-sky-400 select-text">
             Catch the Shape!
           </h1>
         </div>
@@ -178,10 +190,12 @@ export default function AnimatedBanner() {
         {/* Start Game screen */}
         {!gameStarted && missed < maxMisses && (
           <div className="absolute inset-0 z-30 flex flex-col items-center justify-center text-white bg-accent-light backdrop-blur">
-            <h2 className="text-xl font-bold mb-4">Ready to Play?</h2>
+            <h2 className="textbase sm:text-lg md:text-xl lg:text-2xl font-heading mb-4">
+              Ready to Play?
+            </h2>
             <button
               onClick={() => setGameStarted(true)}
-              className="bg-primary hover:bg-accent px-4 py-2 rounded text-white shadow font-body"
+              className="bg-primary hover:bg-accent px-4 py-2 rounded text-white shadow font-body textbase sm:text-lg md:text-xl lg:text-2xl"
             >
               Start Game
             </button>
@@ -191,8 +205,10 @@ export default function AnimatedBanner() {
         {/* Game Over screen */}
         {missed >= maxMisses && (
           <div className="absolute inset-0 z-20 bg-accent-light flex flex-col items-center justify-center text-white px-4 ">
-            <h2 className="text-xl font-bold mb-2 font-heading">Game Over!</h2>
-            <p className="text-lg font-body">
+            <h2 className=" text-[0.9rem] textbase sm:text-l md:text-lg lg:text-xl font-heading sm:mb-2">
+              Game Over!
+            </h2>
+            <p className=" text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl font-body">
               Your Score:{" "}
               <motion.span
                 key={displayScore}
@@ -204,30 +220,35 @@ export default function AnimatedBanner() {
                 {displayScore}
               </motion.span>
             </p>
-            <p className="text-lg font-body">
+            <p className=" text-[0.8rem] textbase sm:text-l md:text-lg lg:text-xl font-body">
               High Score: <span className="text-yellow-400">{highScore}</span>
             </p>
-            <p className="mt-2 text-sm italic text-center text-red-50 font-body">
+            <p className="mt-1 lg:mt-2 text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl italic text-center text-red-50 font-body">
               {isNewHighScore
                 ? "Congratulations! You beat your high score!"
-                : "Try again — you can beat your high score next time!"}
+                : "Try again — bet the High score Next Time!"}
             </p>
 
             <div className="mb-2 w-full max-w-xs text-left">
-              <h3 className="text-lg font-semibold mb-2 underline text-sky-300">
+              <h3 className="text-[0.7rem] textbase sm:text-l md:text-lg lg:text-xl font-semibold mb-0 lg:mb-2 underline text-sky-300">
                 Top Scores
               </h3>
               <ol className="list-decimal list-inside space-y-1 text-yellow-300 font-mono">
                 {leaderboard.length === 0 && <li>No scores yet</li>}
                 {leaderboard.map((scoreItem, index) => (
-                  <li key={index}>{scoreItem}</li>
+                  <li
+                    className="text-[0.8rem]  textbase sm:text-l md:text-lg lg:text-xl "
+                    key={index}
+                  >
+                    {scoreItem}
+                  </li>
                 ))}
               </ol>
             </div>
 
             <button
               onClick={resetGame}
-              className="bg-primary hover:bg-accent px-4 py-2 rounded text-white shadow font-body"
+              className="bg-primary text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl hover:bg-accent px-4 py-2 rounded text-white shadow font-body"
             >
               Play Again
             </button>
@@ -268,8 +289,34 @@ export default function AnimatedBanner() {
           )}
         </div>
       </div>
+      <img
+        src={profile}
+        alt=""
+        className="absolute z-2000 
+        left-11 top-32
+        sm:left-35 sm:top-35
+        lg:top-52 lg:left-60
+         w-[5rem] h-[5rem]
+         lg:w-[9rem] lg:h-[9rem] 
+         sm:w-16 sm:h-16 rounded-full object-cover"
+      />
 
-      <ThemeToggle />
-    </>
+      <button
+        className="
+        bg-accent absolute z-3000 top-45 right-10
+        sm:top-45 sm:right-30
+        lg:top-75 lg:right-60
+       rounded-[3rem] text-secondary font-body
+      text-[0.8rem]
+      textbase sm:text-l md:text-xl lg:text-xl
+       px-4 py-1 sm:px-4 sm:py-1 md:px-5 lg:px-6
+       hover:border-2 hover:border-secondary
+       dark:hover:bg-primary 
+
+       "
+      >
+        Follow
+      </button>
+    </div>
   );
 }

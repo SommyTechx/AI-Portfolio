@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(
@@ -23,7 +24,7 @@ export default function ThemeToggle() {
 
   return (
     <button className="theme-toggle" onClick={toggleTheme}>
-      {isDark ? "🌞 Light Mode" : "🌙 Dark Mode"}
+      {isDark ? <MdOutlineLightMode /> : <MdDarkMode />}
     </button>
   );
 }
