@@ -48,11 +48,12 @@ html.dark {
 html.dark h1,
 html.dark h2,
 html.dark h3,
-html.dark p,
-html.dark span {
+html.dark p {
   color: #f1f5f9;
 }
-
+html.dark span {
+  color: #94a3b8;
+}
 html.dark button.theme-toggle {
   background-color: #f1f5f9;
   color: #0f172a;

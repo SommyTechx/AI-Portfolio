@@ -11,7 +11,7 @@ import Animatedskill from "./Animatedskill";
 const Hero = () => {
   return (
     <>
-      <div className="relative flex flex-col item-center justify-center">
+      <div className="relative flex flex-col item-center justify-center ">
         <section className="">
           <AnimatedBanner />
         </section>
@@ -33,9 +33,9 @@ const Hero = () => {
               className=" w-[1.2rem] lg:w-[1.8rem] sm:w-[1.2rem] "
             />
           </section>
-          <p className=" text-[0.7rem] textbase sm:text-[0.5rem] md:text-[1rem] lg:text-[0.9rem] font-body opacity-100 mb-2">
+          <span className=" text-[0.7rem] textbase sm:text-[0.7rem] md:text-[1rem] lg:text-[0.9rem] font-body mb-8 ">
             Codes Like a Designer, Think Like a Developer
-          </p>
+          </span>
           <p
             className="w-[19.5rem] sm:w-[22rem] 
         md:w-[25rem] lg:w-[33rem]  text-[0.9rem] textbase sm:text-[0.9rem] md:text-[1rem] lg:text-[1.25rem]"
@@ -50,9 +50,9 @@ const Hero = () => {
                 alt="suitcase"
                 className="w-[1rem] sm:w-[1.25rem]"
               />
-              <p className="opacity-80 text-[0.9rem] textbase sm:text-[0.8rem] md:text-[1rem] lg:text-[0.9rem]">
+              <span className="opacity-80 text-[0.9rem] textbase sm:text-[0.8rem] md:text-[1rem] lg:text-[0.9rem]">
                 Avaliable
-              </p>
+              </span>
             </div>
             <div className="flex items-center  mt-4 gap-1">
               <img
@@ -61,12 +61,12 @@ const Hero = () => {
                 className="w-[1rem] sm:w-[1.25rem]"
               />
               <Link to="/links">
-                <p
-                  className="opacity-80 text-[0.9rem] textbase sm:text-[0.8rem] md:text-[1rem] lg:text-[0.9rem]
+                <span
+                  className=" text-[0.9rem] textbase sm:text-[0.8rem] md:text-[1rem] lg:text-[0.9rem]
               underline decoration-1 decoration-accent hover:decoration-blue-700 cursor-pointer"
                 >
                   Links
-                </p>
+                </span>
               </Link>
             </div>
 
@@ -76,9 +76,9 @@ const Hero = () => {
                 alt="suitcase"
                 className="w-[1rem] sm:w-[1.25rem]"
               />
-              <p className="opacity-80 text-[0.9rem] textbase sm:text-[0.8rem] md:text-[1rem] lg:text-[0.9rem]">
+              <span className=" text-[0.9rem] textbase sm:text-[0.8rem] md:text-[1rem] lg:text-[0.9rem]">
                 4th March
-              </p>
+              </span>
             </div>
 
             <div className="flex items-center  mt-4 gap-1">

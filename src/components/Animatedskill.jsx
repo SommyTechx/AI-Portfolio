@@ -2,19 +2,39 @@ import React from "react";
 
 const Animatedskill = () => {
   return (
-    <div class="overflow-hidden whitespace-nowrap w-full bg-gradient-to-r from-slate-400/50 to-slate-900 py-2">
+    <div class="overflow-hidden whitespace-nowrap w-full   py-3 border border-r-0 border-l-0 border-accent-light">
       <div class="inline-block animate-marquee">
-        <span class="mx-4 text-white">HTML</span>
-        <span class="mx-4 text-white">CSS</span>
-        <span class="mx-4 text-white">JavaScript</span>
-        <span class="mx-4 text-white">React</span>
-        <span class="mx-4 text-white">Tailwind CSS</span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          HTML
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          CSS
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          JavaScript
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          React
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          Tailwind CSS
+        </span>
 
-        <span class="mx-4 text-white">HTML</span>
-        <span class="mx-4 text-white">CSS</span>
-        <span class="mx-4 text-white">JavaScript</span>
-        <span class="mx-4 text-white">React</span>
-        <span class="mx-4 text-white">Tailwind CSS</span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          HTML
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          CSS
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          JavaScript
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          React
+        </span>
+        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
+          Tailwind CSS
+        </span>
       </div>
     </div>
   );
