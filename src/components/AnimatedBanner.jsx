@@ -80,6 +80,7 @@ export default function AnimatedBanner() {
 
       setLeaderboard(newLeaderboard);
       localStorage.setItem("leaderboard", JSON.stringify(newLeaderboard));
+      setLeaderboard(newLeaderboard);
     }
 
     if (missed >= maxMisses && !isNewHighScore) {
@@ -182,7 +183,7 @@ export default function AnimatedBanner() {
 
         {/* Title */}
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 px-4">
-          <h1 className="textbase sm:text-lg md:text-xl lg:text-2xl font-heading font-semibold text-sky-400 select-text">
+          <h1 className="text-[0.8rem] textbase sm:text-lg md:text-xl lg:text-2xl font-heading font-semibold text-sky-400 select-text">
             Catch the Shape!
           </h1>
         </div>
@@ -201,54 +202,30 @@ export default function AnimatedBanner() {
             </button>
           </div>
         )}
-
         {/* Game Over screen */}
         {missed >= maxMisses && (
-          <div className="absolute inset-0 z-20 bg-accent-light flex flex-col items-center justify-center text-white px-4 ">
-            <h2 className=" text-[0.9rem] textbase sm:text-l md:text-lg lg:text-xl font-heading sm:mb-2">
+          <div className="absolute inset-0 z-20 bg-accent-light flex flex-col items-center justify-center text-white px-4">
+            <h2 className="text-[0.9rem] textbase sm:text-l md:text-lg lg:text-xl font-heading sm:mb-2">
               Game Over!
             </h2>
-            <p className=" text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl font-body">
-              Your Score:{" "}
+            <p className="text-[0.6rem] textbase sm:text-l md:text-lg lg:text-xl font-body">
+              Your Score: {displayScore}
               <motion.span
                 key={displayScore}
                 initial={{ opacity: 0.5 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
                 className="font-mono text-sky-400"
-              >
-                {displayScore}
-              </motion.span>
-            </p>
-            <p className=" text-[0.8rem] textbase sm:text-l md:text-lg lg:text-xl font-body">
-              High Score: <span className="text-yellow-400">{highScore}</span>
-            </p>
-            <p className="mt-1 lg:mt-2 text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl italic text-center text-red-50 font-body">
-              {isNewHighScore
-                ? "Congratulations! You beat your high score!"
-                : "Try again — bet the High score Next Time!"}
+              ></motion.span>
             </p>
 
-            <div className="mb-2 w-full max-w-xs text-left">
-              <h3 className="text-[0.7rem] textbase sm:text-l md:text-lg lg:text-xl font-semibold mb-0 lg:mb-2 underline text-sky-300">
-                Top Scores
-              </h3>
-              <ol className="list-decimal list-inside space-y-1 text-yellow-300 font-mono">
-                {leaderboard.length === 0 && <li>No scores yet</li>}
-                {leaderboard.map((scoreItem, index) => (
-                  <li
-                    className="text-[0.8rem]  textbase sm:text-l md:text-lg lg:text-xl "
-                    key={index}
-                  >
-                    {scoreItem}
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <p className="mt-1 text-[0.6rem] textbase sm:text-l md:text-lg lg:text-xl italic text-center text-red-50 font-body">
+              Thank you for playing!
+            </p>
 
             <button
               onClick={resetGame}
-              className="bg-primary text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl hover:bg-accent px-4 py-2 rounded text-white shadow font-body"
+              className="mt-4 bg-primary text-[0.5rem] textbase sm:text-l md:text-lg lg:text-xl hover:bg-accent px-4 py-2 rounded text-white shadow font-body"
             >
               Play Again
             </button>
@@ -264,7 +241,7 @@ export default function AnimatedBanner() {
               aria-label="Catch the shape"
               onClick={handleShapeClick}
               onKeyDown={handleKeyDown}
-              className="absolute w-10 h-10 bg-sky-500 rounded-full shadow-lg cursor-pointer select-none"
+              className="absolute z-7000 w-5 h-5 lg:w-10 lg:h-10 sm:w-5 sm:h-5 bg-sky-500 rounded-full shadow-lg cursor-pointer select-none"
               style={{
                 top: `${shapePos.y}%`,
                 left: `${shapePos.x}%`,
@@ -283,7 +260,7 @@ export default function AnimatedBanner() {
 
           {/* Score display */}
           {gameStarted && missed < maxMisses && (
-            <div className="absolute bottom-3 right-4 bg-sky-800/70 text-white font-mono px-3 py-1 rounded-lg shadow-md select-text">
+            <div className="textbase text-[0.5rem] sm:text-l md:text-l lg:text-lg absolute bottom-1 right-0 sm:right[-20rem] bg-accent text-secondary font-body px-2 py-1 rounded-lg shadow-md select-text">
               Score: {score} | Missed: {missed}/{maxMisses}
             </div>
           )}

@@ -23,7 +23,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button className="theme-toggle" onClick={toggleTheme}>
+    <button className="theme-toggle " onClick={toggleTheme}>
       {isDark ? <MdOutlineLightMode /> : <MdDarkMode />}
     </button>
   );

@@ -1,41 +1,53 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Tailwind",
+  "Figma",
+  "Node.js",
+  "TypeScript",
+  "GitHub",
+
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Tailwind",
+  "Figma",
+  "Node.js",
+  "TypeScript",
+  "GitHub",
+];
 
 const Animatedskill = () => {
   return (
-    <div class="overflow-hidden whitespace-nowrap w-full   py-3 border border-r-0 border-l-0 border-accent-light">
-      <div class="inline-block animate-marquee">
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          HTML
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          CSS
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          JavaScript
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          React
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          Tailwind CSS
-        </span>
-
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          HTML
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          CSS
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          JavaScript
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          React
-        </span>
-        <span className="mx-4 textbase sm:text-lg md:text-xl lg:text-zxl">
-          Tailwind CSS
-        </span>
-      </div>
+    <div className="overflow-hidden whitespace-nowrap bg-slate-900 text-white py-4 border border-r-0 border-l-0 border-accent-light">
+      <motion.div
+        className="flex gap-8 text-xl font-semibold animate-marquee"
+        animate={{ x: ["0%", "-100%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: 20,
+          ease: "linear",
+        }}
+      >
+        {/* First set */}
+        <div className="flex gap-8">
+          {skills.map((skill, index) => (
+            <span key={`1-${index}`}>{skill}</span>
+          ))}
+        </div>
+        {/* Second set for seamless loop */}
+        <div className="flex gap-8">
+          {skills.map((skill, index) => (
+            <span key={`2-${index}`}>{skill}</span>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };

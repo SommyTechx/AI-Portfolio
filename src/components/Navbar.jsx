@@ -112,7 +112,7 @@ const Navbar = () => {
           onClick={toggleSearch}
           className="sm:hidden p-2 rounded-full dark:bg-primary"
         >
-          <img src={bot} alt="menu" className="w-5 h-5" />
+          <img src={bot} alt="menu" className="w-7 " />
         </button>
 
         {/* Desktop Search Bar */}
