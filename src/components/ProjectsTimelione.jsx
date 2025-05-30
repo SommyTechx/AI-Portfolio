@@ -37,9 +37,9 @@ const ProjectTimeline = () => {
 
   return (
     <section className="text-white py-12 px-4 sm:py-16 sm:px-6">
-      <h1 className="text-2xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 font-heading">
+      <span className="text-2xl flex justify-center items-center sm:text-4xl font-bold text-center mb-12 sm:mb-16 font-heading">
         Project Timeline
-      </h1>
+      </span>
 
       <div className="relative max-w-5xl mx-auto px-2 sm:px-0">
         {/* Vertical line only on sm+ */}
@@ -69,7 +69,7 @@ const ProjectTimeline = () => {
               >
                 {/* Timeline dot and arrow */}
                 <div
-                  className={`absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 top-0 flex flex-col items-center
+                  className={`absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 top-0  flex-col items-center
                     hidden sm:flex`}
                 >
                   <div className="w-4 h-4 bg-accent-light rounded-full z-10 shadow-md" />

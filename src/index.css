@@ -44,6 +44,27 @@ html.dark {
   background-color: #0f172a;
   color: #f1f5f9;
 }
+/* For light mode */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  transition: color 0.3s ease;
+  background-color: #f1f5f9/90;
+  backdrop-filter: blur(1rem);
+  z-index: 10000;
+}
+
+.dark .navbar {
+  background-color: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(0.75rem);
+  z-index: 20000;
+  color: white;
+}
 
 html.dark h1,
 html.dark h2,

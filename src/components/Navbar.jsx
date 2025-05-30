@@ -75,7 +75,7 @@ const Navbar = () => {
       {showDropdown && (
         <div
           ref={searchRef}
-          className="absolute top-full left-0 right-0 mt-1 bg-accent-light  text-primary rounded-md shadow-lg z-50 max-h-60 overflow-y-auto"
+          className="absolute top-full left-0 right-0 mt-1 bg-accent-light text-primary rounded-md shadow-lg z-50 max-h-60 overflow-y-auto"
         >
           {filteredSuggestions.length > 0 ? (
             filteredSuggestions.map((item, index) => (
@@ -98,15 +98,16 @@ const Navbar = () => {
   );
 
   return (
-    <div className="p-4 text-white relative z-50">
+    <div className="navbar">
       <div className="flex justify-between items-center">
         <Link to="/">
-          <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#F1F5F9] font-heading">
+          <h1 className=" text-base sm:text-lg md:text-xl lg:text-2xl text-[#F1F5F9] font-heading">
             SommyTech
           </h1>
         </Link>
 
         <ThemeToggle />
+
         {/* Mobile Toggle Button */}
         <button
           onClick={toggleSearch}
