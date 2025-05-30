@@ -19,6 +19,8 @@ import Hero from "../components/Hero";
 import Animatedskill from "../components/Animatedskill";
 import ProjectsTimelione from "../components/ProjectsTimelione";
 
+import About from "../components/About";
+
 const Home = () => {
   return (
     <div className="relative">
@@ -30,6 +32,7 @@ const Home = () => {
         <Animatedskill />
       </div>
       <ProjectsTimelione />
+      <About />
     </div>
   );
 };

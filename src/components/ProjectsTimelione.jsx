@@ -36,7 +36,7 @@ const ProjectTimeline = () => {
   const xOffset = windowWidth < 640 ? 0 : 100;
 
   return (
-    <section className="text-white py-12 px-4 sm:py-16 sm:px-6">
+    <section id="projects" className="text-white py-12 px-4 sm:py-16 sm:px-6">
       <span className="text-2xl flex justify-center items-center sm:text-4xl font-bold text-center mb-12 sm:mb-16 font-heading">
         Project Timeline
       </span>
