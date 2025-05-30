@@ -26,15 +26,16 @@ const ProjectTimeline = () => {
   }, []);
 
   return (
-    <section className="bg-slate-950 text-white py-16 px-4">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-16 font-heading">
+    <section className="bg-slate-950 text-white py-12 px-4 sm:py-16 sm:px-6">
+      <h1 className="text-2xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 font-heading">
         Project Timeline
       </h1>
 
-      <div className="relative max-w-5xl mx-auto">
+      <div className="relative max-w-5xl mx-auto px-2 sm:px-0">
+        {/* Vertical line only on sm+ */}
         <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-accent-light" />
 
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-16 sm:gap-20">
           {projects.map((project, index) => {
             const isLeft = index % 2 === 0;
 
@@ -49,6 +50,7 @@ const ProjectTimeline = () => {
                   isLeft ? "sm:justify-start" : "sm:justify-end"
                 }`}
               >
+                {/* Timeline dot and arrow */}
                 <div className="absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 top-0 flex flex-col items-center">
                   <div className="w-4 h-4 bg-accent-light rounded-full z-10 shadow-md" />
                   <div
@@ -59,12 +61,16 @@ const ProjectTimeline = () => {
                 </div>
 
                 <div
-                  className={`bg-slate-800 p-6 rounded-xl shadow-lg w-full sm:w-[45%] z-10 ${
+                  className={`bg-slate-800 p-5 sm:p-6 rounded-xl shadow-lg w-full sm:w-[45%] z-10 text-center sm:text-left ${
                     isLeft ? "sm:ml-auto" : "sm:mr-auto"
                   }`}
                 >
-                  <h3 className="text-xl font-bold">{project.title}</h3>
-                  <p className="mt-2 text-slate-300">{project.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-slate-300 text-sm sm:text-base">
+                    {project.description}
+                  </p>
                 </div>
               </motion.div>
             );
