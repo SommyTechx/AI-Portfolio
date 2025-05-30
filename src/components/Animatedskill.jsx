@@ -11,6 +11,7 @@ const skills = [
   "Node.js",
   "TypeScript",
   "GitHub",
+  "Firebase",
 
   "HTML",
   "CSS",
@@ -21,11 +22,12 @@ const skills = [
   "Node.js",
   "TypeScript",
   "GitHub",
+  "Firebase",
 ];
 
 const Animatedskill = () => {
   return (
-    <div className="overflow-hidden whitespace-nowrap bg-slate-900 text-white py-4 border border-r-0 border-l-0 border-accent-light">
+    <div className="overflow-hidden whitespace-nowrap  text-white py-4 border border-r-0 border-l-0 border-accent-light">
       <motion.div
         className="flex gap-8 text-xl font-semibold animate-marquee"
         animate={{ x: ["0%", "-100%"] }}

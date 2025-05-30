@@ -17,6 +17,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Animatedskill from "../components/Animatedskill";
+import ProjectsTimelione from "../components/ProjectsTimelione";
 
 const Home = () => {
   return (
@@ -25,9 +26,10 @@ const Home = () => {
         <Hero />
       </div>
 
-      <div className=" w-full  ">
+      <div className=" w-full mb-[5rem] ">
         <Animatedskill />
       </div>
+      <ProjectsTimelione />
     </div>
   );
 };
