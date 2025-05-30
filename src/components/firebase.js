@@ -8,7 +8,7 @@ const firebaseConfig = {
   databaseURL:
     "https://project-timeline-2510c-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "project-timeline-2510c",
-  storageBucket: "project-timeline-2510c.firebasestorage.app",
+  storageBucket: "project-timeline-2510c.firebasestorage.appspot.com",
   messagingSenderId: "172851928804",
   appId: "1:172851928804:web:39b6be329509d2b33a56f1",
 };
