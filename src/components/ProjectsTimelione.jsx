@@ -16,6 +16,7 @@ const ProjectTimeline = () => {
           id: doc.id,
           ...doc.data(),
         }));
+        console.log("Fetched projects:", projectsList);
         setProjects(projectsList);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -38,6 +39,7 @@ const ProjectTimeline = () => {
         <div className="flex flex-col gap-16 sm:gap-20">
           {projects.map((project, index) => {
             const isLeft = index % 2 === 0;
+            const imgSrc = `/projectimages/project-${project.order}.jpg`;
 
             return (
               <motion.div
@@ -65,6 +67,15 @@ const ProjectTimeline = () => {
                     isLeft ? "sm:ml-auto" : "sm:mr-auto"
                   }`}
                 >
+                  <img
+                    src={imgSrc}
+                    alt={project.title}
+                    className="w-full h-48 object-cover rounded-md mb-4"
+                    onError={(e) => {
+                      // fallback if image not found
+                      e.target.src = "/images/default.jpg";
+                    }}
+                  />
                   <h3 className="text-lg sm:text-xl font-bold">
                     {project.title}
                   </h3>
