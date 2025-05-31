@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion, AnimatePresence } from "framer-motion";
-import botIcon from "../assets/bot.png"; // replace with your bot icon
+import botIcon from "../assets/bot.png";
+import { useAI } from "../context/AIContext"; // ✅ import context
 
 const suggestions = [
   "Why should I hire you?",
@@ -10,7 +11,7 @@ const suggestions = [
   "What makes you unique?",
   "How many projects have you built?",
   "What’s your biggest achievement?",
-  "Can you speak your response out loud?", // Suggestion 7
+  "Can you speak your response out loud?",
 ];
 
 const aiResponses = {
@@ -36,7 +37,9 @@ const AboutAI = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-  const [isVoiceOn, setIsVoiceOn] = useState(true); // Voice toggle
+  const [isVoiceOn, setIsVoiceOn] = useState(true);
+
+  const { selectedAIQuery } = useAI(); // ✅ get selected query from context
 
   const speak = (text) => {
     if (!isVoiceOn) return;
@@ -67,7 +70,6 @@ const AboutAI = () => {
     setTimeout(() => {
       setIsTyping(false);
       setShowAnswer(true);
-
       const response =
         aiResponses[question] ||
         "Sorry, I don’t understand that yet. Try asking something from the suggestions above!";
@@ -75,8 +77,20 @@ const AboutAI = () => {
     }, 2000);
   };
 
+  // ✅ Automatically respond when Navbar triggers a new AI query
+  useEffect(() => {
+    if (selectedAIQuery) {
+      setQuery(selectedAIQuery);
+      setSelected(selectedAIQuery);
+      triggerTyping(selectedAIQuery);
+    }
+  }, [selectedAIQuery]);
+
   return (
-    <section className=" flex flex-col items-center text-[#0F172A] dark:text-white py-12 px-4 md:px-20 font-heading">
+    <section
+      id="about"
+      className="flex flex-col items-center text-[#0F172A] dark:text-white py-12 px-4 md:px-20 font-heading"
+    >
       {/* Typing Indicator */}
       <AnimatePresence>
         {isTyping && (
@@ -87,9 +101,7 @@ const AboutAI = () => {
             exit={{ opacity: 0 }}
             className="mt-6 text-base italic text-gray-600 dark:text-gray-300"
           >
-            <div className="flex gap-1">
-              <img src={botIcon} alt="AI" className="w-6 h-6" /> AI is typing
-            </div>
+            <div className="flex gap-1">AI is typing</div>
             <span className="dot-animation">...</span>
           </motion.div>
         )}
@@ -129,11 +141,11 @@ const AboutAI = () => {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-          className="w-full px-4 py-3 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-white/10 text-sm text-[#0F172A] dark:text-white"
+          className="w-full px-4 py-3 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-white/10 text-sm text-[#0F172A]"
         />
         <button
           onClick={handleSubmit}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#0F172A] text-white dark:text-[#0F172A] p-2 rounded-full"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#0F172A] text-white dark:text-[#0F172A] p-2 rounded-r-full hover:bg-accent"
         >
           <img src={botIcon} alt="Send" className="w-5" />
         </button>
@@ -158,7 +170,7 @@ const AboutAI = () => {
       <div className="mt-4">
         <button
           onClick={() => setIsVoiceOn(!isVoiceOn)}
-          className="px-4 py-2 text-sm rounded  text-white bg-primary"
+          className="px-4 py-2 text-sm rounded text-white bg-primary border hover:bg-accent"
         >
           {isVoiceOn ? "🔊 Voice On" : "🔇 Voice Off"}
         </button>

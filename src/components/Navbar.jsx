@@ -3,11 +3,15 @@ import { scroller } from "react-scroll";
 import bot from "../assets/bot.png";
 import ThemeToggle from "./ThemeToggle";
 import { Link } from "react-router-dom";
+import { useAI } from "../context/AIContext";
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+
+  // Get setter from AI context
+  const { setSelectedAIQuery } = useAI();
 
   const suggestions = [
     { label: "About Her", targetId: "about" },
@@ -27,6 +31,7 @@ const Navbar = () => {
   const handleSuggestionClick = (id, label) => {
     setQuery(label);
     setShowDropdown(false);
+    setSelectedAIQuery(label); // <-- Update AI context here
     scroller.scrollTo(id, {
       duration: 700,
       smooth: "easeInOutQuint",
